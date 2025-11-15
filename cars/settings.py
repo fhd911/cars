@@ -47,10 +47,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cars.urls'
 
+
+# ⭐ تعريف التمبلت بشكل صحيح
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],     # ⭐ مهم جدًا لإضافة مجلد القوالب
+        'DIRS': [
+            BASE_DIR / 'templates',          # ⭐ نظام القوالب يعرف هذا المسار الآن
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -62,11 +66,11 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'cars.wsgi.application'
 
 
 # Database
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -96,10 +100,20 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files
-
+# ⭐ Static files (CSS, JS, IMAGES)
 STATIC_URL = 'static/'
 
-# Default primary key field type
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',        # ⭐ لو أنشأت فولدر static مستقبلاً
+]
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'   # ⭐ للتجميع عند النشر
+
+
+# ⭐ Media files (الصور)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
