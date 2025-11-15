@@ -1,0 +1,30 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="container mt-5" style="max-width: 450px;">
+    <h3 class="text-center mb-4">تسجيل الدخول</h3>
+
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-danger">{{ msg }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>اسم المستخدم</label>
+        <input type="text" name="username" class="form-control mb-3" required>
+
+        <label>كلمة المرور</label>
+        <input type="password" name="password" class="form-control mb-4" required>
+
+        <button class="btn btn-success w-100">دخول</button>
+
+        <p class="text-center mt-3">
+            لا يوجد لديك حساب؟ <a href="{% url 'register' %}">إنشاء حساب</a>
+        </p>
+    </form>
+</div>
+
+{% include 'footer.html' %}

@@ -1,20 +1,29 @@
 <!-- header.html -->
+
 <header class="main-header">
-    <h1>معرض السيارات الحديثة</h1>
+    <div class="logo">معرض السيارات الحديثة</div>
 </header>
 
 <style>
+    /* الشريط العلوي الثابت */
     .main-header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
         background: linear-gradient(135deg, #0d47a1, #1e88e5);
-        padding: 20px;
+        padding: 18px 0;
         text-align: center;
         color: white;
         font-family: 'Cairo', sans-serif;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        font-size: 24px;
+        font-weight: bold;
+        z-index: 999;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    .main-header h1 {
-        margin: 0;
-        font-size: 28px;
-        letter-spacing: 2px;
+
+    body {
+        padding-top: 80px !important; /* حتى لا يغطي الهيدر الصفحة */
     }
 </style>

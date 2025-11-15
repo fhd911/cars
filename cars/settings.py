@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # ⭐ التطبيقات الثلاثة الخاصة بالمتجر
+    # ⭐ التطبيقات الخاصة بالمتجر
     'accounts',
     'store',
     'orders',
@@ -48,12 +48,12 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'cars.urls'
 
 
-# ⭐ تعريف التمبلت بشكل صحيح
+# ⭐ تفعيل مسار القوالب الرئيسي templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates',          # ⭐ نظام القوالب يعرف هذا المسار الآن
+            BASE_DIR / 'templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -66,11 +66,10 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'cars.wsgi.application'
 
 
-# Database
+# ⭐ إعداد قاعدة البيانات
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -79,8 +78,7 @@ DATABASES = {
 }
 
 
-# Password validation
-
+# ⭐ Password validators
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
@@ -89,8 +87,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-
+# ⭐ اللغة والتوقيت
 LANGUAGE_CODE = 'ar'
 
 TIME_ZONE = 'Asia/Riyadh'
@@ -100,20 +97,20 @@ USE_I18N = True
 USE_TZ = True
 
 
-# ⭐ Static files (CSS, JS, IMAGES)
-STATIC_URL = 'static/'
+# ⭐ Static files (CSS, JS, Images)
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',        # ⭐ لو أنشأت فولدر static مستقبلاً
+    BASE_DIR / 'static'
 ]
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'   # ⭐ للتجميع عند النشر
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # للتجميع أثناء النشر
 
 
-# ⭐ Media files (الصور)
+# ⭐ Media (للصور والملفات المرفوعة)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
-# Default primary key field type
+# ⭐ نوع المفتاح الأولي
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

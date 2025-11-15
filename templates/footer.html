@@ -1,20 +1,24 @@
 <!-- footer.html -->
+
 <footer class="main-footer">
     <p>© 2025 معرض السيارات الحديثة — جميع الحقوق محفوظة</p>
 </footer>
 
 <style>
+    /* الفوتر الثابت أسفل الصفحة */
     .main-footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
         background: #111;
-        padding: 18px;
+        padding: 16px;
         text-align: center;
-        color: #ddd;
+        color: #ccc;
         font-family: 'Cairo', sans-serif;
-        margin-top: 40px;
-    }
-    .main-footer p {
-        margin: 0;
         font-size: 14px;
-        letter-spacing: 1px;
+        z-index: 999;
+        box-shadow: 0 -3px 10px rgba(0,0,0,0.3);
     }
 </style>

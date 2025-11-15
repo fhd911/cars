@@ -1,0 +1,36 @@
+{% load static %}
+{% include 'header.html' %}
+
+<div class="container mt-5" style="max-width: 500px;">
+    <h3 class="text-center mb-4">إنشاء حساب جديد</h3>
+
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-info">{{ msg }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>اسم المستخدم</label>
+        <input type="text" name="username" class="form-control mb-3" required>
+
+        <label>رقم الجوال</label>
+        <input type="text" name="phone" class="form-control mb-3">
+
+        <label>كلمة المرور</label>
+        <input type="password" name="password" class="form-control mb-3" required>
+
+        <label>تأكيد كلمة المرور</label>
+        <input type="password" name="confirm" class="form-control mb-4" required>
+
+        <button class="btn btn-primary w-100">إنشاء حساب</button>
+
+        <p class="text-center mt-3">
+            لديك حساب؟ <a href="{% url 'login' %}">تسجيل الدخول</a>
+        </p>
+    </form>
+</div>
+
+{% include 'footer.html' %}

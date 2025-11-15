@@ -8,50 +8,62 @@
 
 <body>
 
-    <!-- استدعاء الشريط العلوي -->
     {% include 'header.html' %}
 
-    <!-- محتوى الصفحة الرئيسية -->
     <section class="hero">
         <h2>استكشف أحدث السيارات</h2>
-        <p>أفضل العروض – أحدث الموديلات – أسعار تنافسية</p>
+        <p>أفضل العروض — أحدث الموديلات — أسعار تنافسية</p>
         <button class="btn-hero">ابدأ التصفح</button>
     </section>
 
-    <!-- استدعاء الشريط السفلي -->
     {% include 'footer.html' %}
 
 </body>
 
 <style>
+
+    /* خلفية الصفحة */
     body {
         margin: 0;
+        padding-bottom: 100px; /* حتى لا يغطي الفوتر الصفحة */
         background: #f4f4f4;
         font-family: 'Cairo', sans-serif;
     }
 
+    /* صورة الخلفية */
     .hero {
         text-align: center;
         padding: 80px 20px;
-        background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover no-repeat;
+        background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600') center/cover no-repeat;
+        height: 500px;
         color: white;
         position: relative;
+        border-radius: 6px;
+        margin: 10px;
+        overflow: hidden;
     }
+
+    /* طبقة شفافة */
     .hero::after {
         content: "";
         position: absolute;
         top:0; left:0;
         width:100%; height:100%;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.45);
     }
-    .hero h2, .hero p, .btn-hero {
+
+    /* نصوص فوق الصورة */
+    .hero h2,
+    .hero p,
+    .btn-hero {
         position: relative;
         z-index: 2;
     }
 
     .hero h2 {
         font-size: 40px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        font-weight: bold;
     }
 
     .hero p {
@@ -59,15 +71,16 @@
         margin-bottom: 25px;
     }
 
+    /* زر */
     .btn-hero {
         background: #1e88e5;
         color: white;
         border: none;
-        padding: 12px 30px;
+        padding: 14px 35px;
         font-size: 18px;
         border-radius: 8px;
         cursor: pointer;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         transition: 0.3s;
     }
 
@@ -75,6 +88,7 @@
         background: #1565c0;
         transform: scale(1.05);
     }
+
 </style>
 
 </html>

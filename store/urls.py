@@ -1,5 +1,6 @@
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    # سيتم إضافة المسارات لاحقاً
+    path('', views.home, name='home'),   # ⭐ الصفحة الرئيسية
 ]
