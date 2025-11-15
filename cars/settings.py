@@ -50,7 +50,7 @@ ROOT_URLCONF = 'cars.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],     # ⭐ مهم جدًا لإضافة مجلد القوالب
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
