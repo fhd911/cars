@@ -1,12 +1,12 @@
 {% load static %}
 {% include 'header.html' %}
 
-<div class="container mt-5" style="max-width: 450px;">
-    <h3 class="text-center mb-4">تسجيل الدخول</h3>
+<div class="form-container">
+    <h2>تسجيل الدخول</h2>
 
     {% if messages %}
         {% for msg in messages %}
-            <div class="alert alert-danger">{{ msg }}</div>
+            <div class="alert">{{ msg }}</div>
         {% endfor %}
     {% endif %}
 
@@ -14,17 +14,91 @@
         {% csrf_token %}
 
         <label>اسم المستخدم</label>
-        <input type="text" name="username" class="form-control mb-3" required>
+        <input type="text" name="username" required>
 
         <label>كلمة المرور</label>
-        <input type="password" name="password" class="form-control mb-4" required>
+        <input type="password" name="password" required>
 
-        <button class="btn btn-success w-100">دخول</button>
+        <button type="submit" class="btn">تسجيل الدخول</button>
 
-        <p class="text-center mt-3">
-            لا يوجد لديك حساب؟ <a href="{% url 'register' %}">إنشاء حساب</a>
+        <p class="login-text">
+            ليس لديك حساب؟ <a href="{% url 'register' %}">إنشاء حساب</a>
         </p>
     </form>
 </div>
 
 {% include 'footer.html' %}
+
+<style>
+    body {
+        direction: rtl;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .form-container {
+        max-width: 450px;
+        margin: 120px auto;
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+        text-align: right;
+    }
+
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #0d47a1;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .btn {
+        width: 100%;
+        background: #0d47a1;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn:hover {
+        background: #08306b;
+    }
+
+    .login-text {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .login-text a {
+        color: #0d47a1;
+        font-weight: bold;
+    }
+
+    .alert {
+        background: #ffebee;
+        padding: 10px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        color: #c62828;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>

@@ -2,6 +2,16 @@
 
 <header class="main-header">
     <div class="logo">معرض السيارات الحديثة</div>
+
+    <div class="nav-links">
+        {% if user.is_authenticated %}
+            <span class="welcome">مرحباً يا {{ user.username }}</span>
+            <a href="/accounts/logout/" class="nav-btn logout-btn">تسجيل خروج</a>
+        {% else %}
+            <a href="/accounts/register/" class="nav-btn">إنشاء حساب</a>
+            <a href="/accounts/login/" class="nav-btn">تسجيل دخول</a>
+        {% endif %}
+    </div>
 </header>
 
 <style>
@@ -24,6 +34,47 @@
     }
 
     body {
-        padding-top: 80px !important; /* حتى لا يغطي الهيدر الصفحة */
+        padding-top: 110px !important; /* حتى لا يغطي الهيدر الصفحة */
+        font-family: 'Cairo', sans-serif;
+        direction: rtl;
+    }
+
+    /* الروابط */
+    .nav-links {
+        margin-top: 12px;
+    }
+
+    .nav-btn {
+        margin: 0 8px;
+        padding: 7px 16px;
+        background: white;
+        color: #0d47a1;
+        font-size: 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .nav-btn:hover {
+        background: #e3f2fd;
+        transform: scale(1.05);
+    }
+
+    /* زر تسجيل الخروج */
+    .logout-btn {
+        background: #ff4444;
+        color: white !important;
+    }
+
+    .logout-btn:hover {
+        background: #cc0000;
+    }
+
+    .welcome {
+        color: #fff;
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: 600;
     }
 </style>

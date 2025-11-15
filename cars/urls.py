@@ -6,13 +6,13 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # ⭐ ربط التطبيقات الثلاثة
+    # ⭐ ربط تطبيق الحسابات بشكل صحيح
     path('accounts/', include('accounts.urls')),
+
+    # ⭐ ربط التطبيقات الأخرى
+    path('', include('store.urls'), name='home'),
     path('store/', include('store.urls')),
     path('orders/', include('orders.urls')),
-
-    # ⭐ الصفحة الرئيسية (store هي الافتراضية)
-    path('', include('store.urls')),
 ]
 
 # ⭐ دعم ملفات الميديا أثناء التطوير
