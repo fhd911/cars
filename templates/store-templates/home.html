@@ -1,0 +1,52 @@
+{% include 'header.html' %}
+
+<div class="hero">
+    <h1>مرحباً بكم في معرض السيارات الحديثة</h1>
+    <p>أفضل السيارات الجديدة بأفضل الأسعار</p>
+
+    <a href="/store/products/" class="btn-main">عرض المنتجات</a>
+</div>
+
+{% include 'footer.html' %}
+
+<style>
+    body {
+        direction: rtl;
+        font-family: 'Cairo', sans-serif;
+        background: #f3f6fa;
+    }
+
+    /* منطقة الترحيب */
+    .hero {
+        text-align: center;
+        margin-top: 140px;
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        font-weight: bold;
+        color: #0d47a1;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: #444;
+    }
+
+    .btn-main {
+        padding: 12px 25px;
+        background: #0d47a1;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .btn-main:hover {
+        background: #08306b;
+    }
+</style>
